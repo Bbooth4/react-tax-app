@@ -1,0 +1,153 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+/*.brand-logo > i {
+  padding-left: 0.5em !important;
+  font-size: 45px !important;
+}*/
+.z-10 {
+  z-index: 10; 
+}
+
+#footer {
+  margin-top: 50px;
+}
+
+#sliding-cards, #articles {
+  padding: 0px !important;
+  height: 400px;
+}
+
+#open-sidebar {
+  background: #1976d2;
+  height: 20px;
+  margin-bottom: 38px;
+  box-shadow: 0px 0px 0px 0px;
+}
+
+nav#nav.blue.darken-2.white-text {
+  padding-left: 30px;
+  box-shadow: 0px 0px 0px 0px;
+}
+
+.dropdown-content li>a, 
+.dropdown-content li>span {
+  color: #ffffff;
+  background: #1e88e5;
+}
+
+.space {
+  margin-left: 5px;
+  margin-right: 5px;
+  visibility: hidden;
+}
+
+nav ul a,
+nav .brand-logo {
+  background: #1976d2;
+  margin-bottom: -22px;
+  padding-bottom: 0px;
+}
+
+div.nav-wrapper div.col ul li a:hover {
+  background: #1565c0;
+}
+
+.nav-title {
+  padding: 30px;
+  font-size: 25px;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+
+.parallax-container .section {
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media (max-width: 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+#nav-title1 {
+  display: none;
+  transition: 300ms;
+}
+@media (max-width: 799px) {
+  #nav-title2 {
+    display: none;
+    transition: 300ms;
+  }
+
+  #nav-title1 {
+    display: initial;
+    transition: 300ms;
+  }
+}
+
+.nav-menu, .space {
+  display: initial !important;
+  transition: 300ms;
+}
+@media (max-width: 850px) {
+  .space, .nav-menu {
+    display: none !important;
+    transition: 300ms;
+  }
+}
+
+#open-sidebar, .sidenav {
+  visibility: visible;
+  transition: 300ms;
+}
+@media (min-width: 800px) {
+  #open-sidebar, .sidenav {
+    visibility: hidden;
+    transition: 300ms;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+  background: #1976d2;
+}
+
+div.footer-copyright {
+  margin-top: 10px;
+}
