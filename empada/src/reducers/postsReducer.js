@@ -6,6 +6,12 @@ export default function postsReducer(state = initialState.posts, action) {
     case types.LOAD_POSTS:
       return action.posts;
 
+    case types.INSTANTIATE_POSTS:
+      return [
+        ...state,
+        Object.assign({}, action.posts)
+      ];
+
     case types.CREATE_POSTS:
       return [
         ...state,

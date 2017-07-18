@@ -4,33 +4,32 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import '../../styles/App.css';
 import Articles from '../articles/Articles.jsx';
-// import initialState from '../../reducers/index.js';
-import * as postsActions from '../../actions/postsActions';
+// import initialState from '../../reducers/initialState.js';
+import { loadPost } from '../../actions/postsActions';
 // import * as types from '../../actions/actionTypes';
 import { browserHistory } from 'react-router';
 
 // const posts = initialState.posts;
 
-// const loadArticles = () => {
-//   const allPost = {
-//     type: types.LOAD_POSTS,
-//     posts: posts
-//   }
-//   console.log(posts);
-//   this.socket.send(JSON.stringify(allPost));
-// }
-
-// loadArticles();
-
-// componentDidMount() {
-
-// }
+console.log(loadPost)
 
 class HomePage extends Component {
   // constructor(props, context) {
   //   super(props, context);
   // }
 
+  // componentWillMount = () => {
+  //   this.socket = new WebSocket("ws://localhost:3000");
+  //   const allPost = {
+  //     type: types.LOAD_POSTS,
+  //   }
+  //   this.socket.send(JSON.stringify(allPost));
+  // }
+
+  componentDidMount = () => {
+    this.props.loadPost();
+    console.log(loadPost)
+  }
 
   redirectToAddCoursePage = () => {
     browserHistory.push('/course');
@@ -135,7 +134,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(postsActions, dispatch)
+    actions: bindActionCreators(loadPost, dispatch)
   };
 }
 
