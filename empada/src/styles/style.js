@@ -95,7 +95,7 @@ export default StyleSheet.create({
   '#nav-title1': {
     'display': 'none',
     'transition': '300ms',
-    '<w799': {
+    '>w799': {
       'display': 'initial',
       'transition': '300ms'
     }

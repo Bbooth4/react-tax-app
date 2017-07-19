@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "jquery": "^3.2.1",
-    "react-router-redux": "^4.0.8"
-  }
-}
