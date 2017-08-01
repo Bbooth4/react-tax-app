@@ -1,10 +1,9 @@
 {
-  "name": "empada",
+  "name": "back-taxes-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "auth0-lock": "^10.13.0",
-    "chartkick": "^2.2.3",
     "dateformat": "^2.0.0",
     "dotenv": "^4.0.0",
     "firebase": "^4.1.3",
