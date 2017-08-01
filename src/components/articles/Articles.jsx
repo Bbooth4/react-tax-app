@@ -3,10 +3,10 @@ import React from 'react';
 import { Card } from 'react-materialize';
 import '../../styles/App.css';
 
-const Articles = ({ article }) => {
+const Articles = ({ post }) => {
   return (
-    <Card className='white darken-1 hoverable' title={article.title} actions={[<a href={article.url}>{article.title}</a>]}>
-      {article.description}
+    <Card className='white darken-1 hoverable' title={post.title} actions={[<a href={post.url}>{post.title}</a>]}>
+      {post.description}
     </Card>
   )
 }

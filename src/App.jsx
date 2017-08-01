@@ -4,7 +4,6 @@ import './styles/App.css';
 import './styles/style.css';
 // import Auth0Lock from 'auth0-lock'
 import Nav from './components/common/Nav.jsx';
-import HomePage from './components/common/HomePage.jsx';
 import Footerr from './components/common/Footer.jsx';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
@@ -27,7 +26,6 @@ class App extends Component {
         </Provider>*/}
         <Nav />
         {this.props.children}
-        {/*<HomePage />*/}
         <Footerr />
         <Alert stack={{limit: 3}} effect='genie' timeout={5000} />
       </div>

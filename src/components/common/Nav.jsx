@@ -5,7 +5,7 @@ import SideNavv from './SideNav.jsx';
 class Nav extends Component {
   render() {
     const topPadding = {
-      'padding-top': '20px'
+      'paddingTop': '20px'
     }
     return (
       <Row>

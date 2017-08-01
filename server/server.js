@@ -4,9 +4,9 @@ const SocketServer      = require('ws').Server;
 const WebSocket         = require('ws');
 const models            = require("./models");
 const sass              = require("node-sass-middleware");
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { postsReducer } from '../src/reducers/postsReducers.js';
+// import { createStore } from 'redux';
+// import { Provider } from 'react-redux';
+// import { postsReducer } from '../src/reducers/postsReducers.js';
 
 // app.use("/scss", sass({
 //   src: __dirname + "./scss",
@@ -28,6 +28,7 @@ models.sequelize.sync({ force: false }).then(() => {
   app.get("/posts", (req, res) => {
     models.post.findAll({ raw: true })
       .then((response) => {
+        console.log(response)
         res.send(response);
       }).catch((err) => {
         console.error(err);

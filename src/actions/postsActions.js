@@ -1,30 +1,28 @@
 import * as types from './actionTypes';
-import database from '../database/firebase.js';
-// import * as models from '../../../server/models';
+import axios from 'axios';
 
-// export function loadPosts(posts) {
-//   return {type: types.LOAD_POSTS, posts};
-// }
-const loadPostsActions = () => {
+const loadPostsActions = (post) => {
   return {
     type: types.LOAD_POSTS
   };
 }
 
-const instantiatePostsActions = (posts) => {
-  return {
-    type: types.INSTANTIATE_POSTS
-  };
-}
+export function loadPosts() {
+  return dispatch => {
+    return axios.get('/posts')
+    .then(post => {
+      console.log(post)
+      dispatch(loadPostsActions(post));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
 
-// const grabPostsActions = () => {
-//   models.posts.findAll()
-//     .then((res) => {
-//       console.log(res);
-//       return res;
-//     }).catch((err) => {
-//       console.error(err);
-//     })
+// const instantiatePostsActions = (posts) => {
+//   return {
+//     type: types.INSTANTIATE_POSTS
+//   };
 // }
 
 // export function instantiatePost() {
@@ -50,17 +48,5 @@ const instantiatePostsActions = (posts) => {
 //   }
 // }
 
-export function loadPost() {
-  return dispatch => {
-    dispatch(loadPostsActions());
-    return database.ref('/').once('value', snap => {
-      console.log(snap)
-      const articles = snap.val();
-      dispatch(loadPostsActions(articles))
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
 }
 

@@ -1,46 +1,35 @@
 import React, { Component } from 'react';
-import { Row, Col, Slider, Slide, Card } from 'react-materialize';
+import { Row, Col, Slider, Slide } from 'react-materialize';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import '../../styles/App.css';
+import * as postActions from '../../actions/postsActions';
 import Articles from '../articles/Articles.jsx';
-// import initialState from '../../reducers/initialState.js';
-import { loadPost } from '../../actions/postsActions';
+import initialState from '../../reducers/initialState.js';
 // import * as types from '../../actions/actionTypes';
-import { browserHistory } from 'react-router';
-
-// const posts = initialState.posts;
-
-console.log(loadPost)
+// import { browserHistory } from 'react-router';
 
 class HomePage extends Component {
-  // constructor(props, context) {
-  //   super(props, context);
-  // }
+  constructor(props) {
+    super(props);
 
-  // componentWillMount = () => {
-  //   this.socket = new WebSocket("ws://localhost:3000");
-  //   const allPost = {
-  //     type: types.LOAD_POSTS,
-  //   }
-  //   this.socket.send(JSON.stringify(allPost));
-  // }
+    this.state = {
+      posts: Object.assign({}, props.posts)
+    }
+  }
 
   componentDidMount = () => {
-    this.props.loadPost();
-    console.log(loadPost)
+    console.log('this.state.posts', this.state.posts)
   }
 
-  redirectToAddCoursePage = () => {
-    browserHistory.push('/course');
-  }
+  // redirectToAddCoursePage = () => {
+  //   browserHistory.push('/course');
+  // }
 
   render() {
-    const { articles } = this.props;
-
     const overflow = {
       'overflow': 'auto',
-      'overflow-y': 'hidden',
+      'overflowY': 'hidden',
       'height': '400px'
     }
     return (
@@ -62,7 +51,7 @@ class HomePage extends Component {
             </Slider>
           </Col>
           <Col s={12} m={4} id='articles' style={overflow}>
-            <Card className='white darken-1 hoverable' title='Frozen Account' actions={[<a href='#'>This is a link</a>]}>
+            {/* <Card className='white darken-1 hoverable' title='Frozen Account' actions={[<a href='#'>This is a link</a>]}>
               A series of things that can be said to tell you about how to solve your frozen account issue.
             </Card>
             <Card className='white darken-1 hoverable' title='Garnished Wages' actions={[<a href='#'>This is a link</a>]}>
@@ -70,15 +59,15 @@ class HomePage extends Component {
             </Card>
             <Card className='white darken-1 hoverable' title='CRA Letters' actions={[<a href='#'>This is a link</a>]}>
               A series of things that can be said to tell you about how to solve your CRA letters issue.
-            </Card>
-            {/*{
-              articles.map(article => {
+            </Card> */}
+             {
+              this.props.posts.map(({ post }) => {
                 return <Articles
-                  article={article}
-                  key={article.id}
+                  post={post}
+                  key={post.id}
                 />
               })
-            }*/}
+            } 
           </Col>
         </Row>
 
@@ -128,13 +117,13 @@ class HomePage extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    articles: state.articles
+    posts: state.posts
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(loadPost, dispatch)
+    actions: bindActionCreators(postActions, dispatch)
   };
 }
 
